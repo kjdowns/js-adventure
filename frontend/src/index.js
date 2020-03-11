@@ -32,11 +32,25 @@ function renderScene() {
     drawEntity(enemy1);
 }
 
+function checkCollision(entity1, entity2){
+    if ((entity1.collisionBox()[0] > entity2.collisionBox()[0] && entity1.collisionBox()[0] < entity2.collisionBox()[1]) ||
+        (entity1.collisionBox()[1] > entity2.collisionBox()[0] && entity1.collisionBox()[1] < entity2.collisionBox()[1]) ||
+        (entity1.collisionBox()[2] > entity2.collisionBox()[2] && entity1.collisionBox()[2] < entity2.collisionBox()[3]) ||
+        (entity1.collisionBox()[3] > entity2.collisionBox()[2] && entity1.collisionBox()[3] < entity2.collisionBox()[3])) {
+            return true;
+    } else {
+        return false;
+    }
+}
+
 function drawEntity(entity) {
     ctx.drawImage(entity.sprite, 0, 0, 35, 35, entity.xPosition, entity.yPosition, entity.width, entity.height)
 }
 
 function gameLoop() {
     renderScene();
+    if (checkCollision(player, enemy1)){
+        console.log("Collision!!")
+    }
 }
 setInterval(gameLoop,15);
