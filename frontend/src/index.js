@@ -3,8 +3,8 @@
 const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
 let background = new Image();
-let playerSprite = new Image();
-playerSprite.src = "img/sprite-sheet.png"
+let player = new Player();
+
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
         console.log("Arrow Left pressed")
@@ -21,18 +21,16 @@ document.addEventListener('keydown', function(e){
     }
 })
 
-let player = new Player();
-
 function initializeScene() {
     background.src = "img/dungeon_entrance.JPG"
     background.onload = function(){
     ctx.drawImage(background, 0, 0);
-    drawEntity(player, playerSprite);
+    drawEntity(player);
     }
 }
 
-function drawEntity(entity, img) {
-    ctx.drawImage(img, 0, 0, 35, 35, entity.xPosition, entity.yPosition, entity.width, entity.height)
+function drawEntity(entity) {
+    ctx.drawImage(entity.sprite, 0, 0, 35, 35, entity.xPosition, entity.yPosition, entity.width, entity.height)
 }
 
 function gameLoop() {

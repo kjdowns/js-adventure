@@ -5,5 +5,7 @@ class Player {
         this.speed = 8;
         this.width = 50;
         this.height = 50;
+        this.sprite = new Image();
+        this.sprite.src = "img/sprite-sheet.png";
     }
 }
