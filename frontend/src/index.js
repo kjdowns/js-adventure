@@ -28,8 +28,7 @@ let player = {
         y: 400,
         speed: 8,
         width: 50,
-        height: 70,
-        color: 'green',
+        height: 70
 };
 
 function initializeScene() {
