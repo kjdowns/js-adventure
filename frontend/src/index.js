@@ -2,28 +2,32 @@
 
 const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
-let currenRoom = new Room("img/dungeon_entrance.JPG");
+let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png");
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
-        console.log("Arrow Left pressed")
-        player.xPosition -= player.speed;
+        if (player.xPosition > currentRoom.leftBoundary){
+            player.xPosition -= player.speed;
+        }
     } else if (e.key == "ArrowRight") {
-        console.log("Arrow Right pressed")
-        player.xPosition += player.speed
+        if (player.xPosition < currentRoom.rightBoundary) {
+            player.xPosition += player.speed
+        }
     } else if (e.key == "ArrowDown") {
-        console.log("Arrow Down pressed")
-        player.yPosition += player.speed
+        if (player.yPosition < currentRoom.bottomBoundary) {
+            player.yPosition += player.speed
+        }
     } else if (e.key == "ArrowUp") {
-        console.log("Arrow Up pressed")
-        player.yPosition -= player.speed
+        if (player.yPosition > currentRoom.topBoundary) {
+            player.yPosition -= player.speed
+        }
     }
 })
 
 function renderScene() {
-    currenRoom.render();
+    currentRoom.render();
     drawEntity(player);
     drawEntity(enemy1);
 }
