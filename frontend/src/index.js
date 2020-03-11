@@ -2,7 +2,7 @@
 
 const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
-let background = new Image();
+let currenRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png");
 
@@ -22,13 +22,10 @@ document.addEventListener('keydown', function(e){
     }
 })
 
-function initializeScene() {
-    background.src = "img/dungeon_entrance.JPG"
-    background.onload = function(){
-    ctx.drawImage(background, 0, 0);
+function renderScene() {
+    currenRoom.render();
     drawEntity(player);
     drawEntity(enemy1);
-    }
 }
 
 function drawEntity(entity) {
@@ -36,6 +33,6 @@ function drawEntity(entity) {
 }
 
 function gameLoop() {
-    initializeScene();
+    renderScene();
 }
 setInterval(gameLoop,15);
