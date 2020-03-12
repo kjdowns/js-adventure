@@ -33,10 +33,13 @@ function renderScene() {
 }
 
 function checkCollision(entity1, entity2){
-    if ((entity1.collisionBox()[0] > entity2.collisionBox()[0] && entity1.collisionBox()[0] < entity2.collisionBox()[1]) ||
-        (entity1.collisionBox()[1] > entity2.collisionBox()[0] && entity1.collisionBox()[1] < entity2.collisionBox()[1]) ||
-        (entity1.collisionBox()[2] > entity2.collisionBox()[2] && entity1.collisionBox()[2] < entity2.collisionBox()[3]) ||
-        (entity1.collisionBox()[3] > entity2.collisionBox()[2] && entity1.collisionBox()[3] < entity2.collisionBox()[3])) {
+    let box1 = entity1.collisionBox();
+    let box2 = entity2.collisionBox();
+
+    if (box1.x < box2.x + box2.width &&
+        box1.x + box1.width > box2.x &&
+        box1.y < box2.y + box2.height &&
+        box1.y + box1.height > box2.y) {
             return true;
     } else {
         return false;

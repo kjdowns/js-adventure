@@ -3,13 +3,18 @@ class Player {
         this.xPosition = 380;
         this.yPosition = 400;
         this.speed = 10;
-        this.width = 20;
-        this.height = 30;
+        this.width = 35;
+        this.height = 35;
         this.sprite = new Image();
         this.sprite.src = "img/sprite-sheet.png";
     }
 
     collisionBox(){
-        return [this.xPosition, this.xPosition + this.width, this.yPosition, this.yPosition + this.height]
+        return {
+            x: this.xPosition,
+            y: this.yPosition,
+            width: this.width,
+            height: this.height
+        }
     }
 }
