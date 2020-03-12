@@ -6,6 +6,7 @@ const sideBar = document.getElementById("side-bar");
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png");
+let projectiles = [];
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
@@ -25,8 +26,8 @@ document.addEventListener('keydown', function(e){
             player.yPosition -= player.speed
         }
     } else if (e.key == "z"){
-        let fireball = new Image();
-        fireball.src = "img/fireball.png"
+        let fireball = new Projectile(player, "fire")
+        projectiles.push(fireball);
     }
 })
 
@@ -34,6 +35,7 @@ function renderScene() {
     currentRoom.render();
     drawEntity(player);
     drawEntity(enemy1);
+    drawProjectiles();
     sideBar.innerText = `HP: ${player.hp}` 
 }
 
@@ -53,6 +55,10 @@ function checkCollision(entity1, entity2){
 
 function drawEntity(entity) {
     ctx.drawImage(entity.sprite, 0, 0, 35, 35, entity.xPosition, entity.yPosition, entity.width, entity.height)
+}
+
+function drawProjectiles() {
+    projectiles.forEach(projectile => drawEntity(projectile))
 }
 
 function gameLoop() {

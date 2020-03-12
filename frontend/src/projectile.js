@@ -5,8 +5,8 @@ class Projectile {
         this.xPosition = caster.xPosition;
         this.yPosition = caster.yPosition;
         this.direction = caster.direction;
-        this.height= 40;
-        this.width = 40;
+        this.height= 62;
+        this.width = 62;
         this.sprite = new Image();
         if (type == "fire") {
             this.sprite.src = "img/fireball.png"
