@@ -24,6 +24,9 @@ document.addEventListener('keydown', function(e){
         if (player.yPosition > currentRoom.topBoundary) {
             player.yPosition -= player.speed
         }
+    } else if (e.key == "z"){
+        let fireball = new Image();
+        fireball.src = "img/fireball.png"
     }
 })
 
