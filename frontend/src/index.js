@@ -38,10 +38,10 @@ function checkCollision(entity1, entity2){
     let box1 = entity1.collisionBox();
     let box2 = entity2.collisionBox();
 
-    if (box1.x < box2.x + box2.width &&
-        box1.x + box1.width > box2.x &&
-        box1.y < box2.y + box2.height &&
-        box1.y + box1.height > box2.y) {
+    if (box1.x < box2.x + 30 &&
+        box1.x + 30 > box2.x &&
+        box1.y < box2.y + 30 &&
+        box1.y + 30 > box2.y) {
             return true;
     } else {
         return false;
@@ -54,8 +54,13 @@ function drawEntity(entity) {
 
 function gameLoop() {
     renderScene();
-    if (checkCollision(player, enemy1)){
-        console.log("Collision!!")
+    if (!player.collision){
+        if (checkCollision(player, enemy1)){
+            console.log("Collision!!")
+            player.collision = true;
+            player.hp -= 1;
+            setTimeout(() => {player.collision = false}, 1000);
+        }
     }
 }
 setInterval(gameLoop,15);
