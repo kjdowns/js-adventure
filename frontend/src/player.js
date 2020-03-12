@@ -1,5 +1,6 @@
 class Player {
     constructor(){
+        this.hp = 10;
         this.xPosition = 380;
         this.yPosition = 400;
         this.speed = 10;

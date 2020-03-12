@@ -2,6 +2,7 @@
 
 const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
+const sideBar = document.getElementById("side-bar");
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png");
@@ -30,6 +31,7 @@ function renderScene() {
     currentRoom.render();
     drawEntity(player);
     drawEntity(enemy1);
+    sideBar.innerText = `HP: ${player.hp}` 
 }
 
 function checkCollision(entity1, entity2){
