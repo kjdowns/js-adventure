@@ -28,6 +28,9 @@ document.addEventListener('keydown', function(e){
     } else if (e.key == "z"){
         let fireball = new Projectile(player, "fire")
         projectiles.push(fireball);
+    } else if (e.key == "x"){
+        let icicle = new Projectile(player, "ice")
+        projectiles.push(icicle);
     }
 })
 
