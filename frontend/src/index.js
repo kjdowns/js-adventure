@@ -4,7 +4,7 @@ const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
-let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png");
+let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png", 5, 40, 40);
 let projectiles = [];
 
 document.addEventListener('keydown', function(e){
@@ -25,10 +25,10 @@ document.addEventListener('keydown', function(e){
             player.yPosition -= player.speed
         }
     } else if (e.key == "z"){
-        let fireball = new Projectile(player, "fire")
+        let fireball = new Projectile(player, "fire", 60, 60)
         projectiles.push(fireball);
     } else if (e.key == "x"){
-        let icicle = new Projectile(player, "ice")
+        let icicle = new Projectile(player, "ice", 60, 60)
         projectiles.push(icicle);
     }
 })
