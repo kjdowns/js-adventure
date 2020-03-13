@@ -13,9 +13,18 @@ main {
     color: cadetblue;
 }
 
-#movement {
-    color: cadetblue;
+#side-bar {
+    background-image: url("../img/side-frame.png");
+    width: 350px;
+    text-align: center;
+}
 
+#side-bar-content {
+    padding-top: 50px;
+}
+
+.side-text {
+    color: cadetblue;
 }
 
 #spell-info img {
