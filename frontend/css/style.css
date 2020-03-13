@@ -12,3 +12,18 @@ main {
     justify-content: center;
     color: cadetblue;
 }
+
+#movement {
+    color: cadetblue;
+
+}
+
+#spell-info img {
+    height: 50px;
+    width: 50px;
+}
+
+#movement-info img {
+    height: 150px;
+    width: 200px;
+}
