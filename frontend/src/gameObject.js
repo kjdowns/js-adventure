@@ -1,0 +1,7 @@
+class GameObject {
+    
+    constructor(){
+
+    }
+
+}
