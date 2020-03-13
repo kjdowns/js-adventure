@@ -39,7 +39,7 @@ function renderScene() {
     drawEntity(player);
     drawEntity(enemy1);
     drawProjectiles();
-    sideBar.innerText = `HP: ${player.hp}` 
+    // sideBar.innerText = `HP: ${player.hp}` 
 }
 
 function checkCollision(entity1, entity2){

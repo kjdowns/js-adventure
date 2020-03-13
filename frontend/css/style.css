@@ -1,10 +1,14 @@
+body {
+    background-color:  #050608;
+}
+
 main {
     display: flex;
     justify-content: center;
 }
 
-#side-bar {
-    margin: 5px;
-    padding: 5px;
-    border: black solid 1px;
+#top-panel {
+    display: flex;
+    justify-content: center;
+    color: cadetblue;
 }
