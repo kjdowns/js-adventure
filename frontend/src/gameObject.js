@@ -9,7 +9,7 @@ class GameObject {
         this.sprite = new Image();
         this.sprite.src;
         this.direction;
-        this.sheetRow;
+        this.sheetRow = 0;
         this.collision = false;
     }
 

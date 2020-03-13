@@ -1,5 +1,6 @@
 class Player extends GameObject {
     constructor(){
+        super();
         this.hp = 10;
         this.xPosition = 380;
         this.yPosition = 400;
