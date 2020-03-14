@@ -59,7 +59,7 @@ function drawEntity(entity) {
 }
 
 function drawProjectiles() {
-    projectiles.forEach(projectile => drawEntity(projectile))
+    projectiles.forEach(projectile => projectile.animate())
 }
 
 function gameLoop() {

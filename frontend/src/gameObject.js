@@ -10,6 +10,7 @@ class GameObject {
         this.sprite.src;
         this.direction;
         this.sheetRow = 0;
+        this.sheetCol = 0;
         this.collision = false;
     }
 
