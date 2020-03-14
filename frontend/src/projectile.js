@@ -25,4 +25,13 @@ class Projectile extends GameObject {
         this.xPosition -= this.speed;
     }
 
+    static cleanup(){
+        projectiles = projectiles.filter(projectile => {
+            projectile.xPosition > currentRoom.leftBoundary &&
+            projectile.xPosition < currentRoom.rightBoundary &&
+            projectile.yPosition < currentRoom.bottomBoundary &&
+            projectile.yPosition > currentRoom.topBoundary
+        })
+    }
+
 }

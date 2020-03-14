@@ -11,18 +11,22 @@ document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
         if (player.xPosition > currentRoom.leftBoundary){
             player.xPosition -= player.speed;
+            player.direction = "left"
         }
     } else if (e.key == "ArrowRight") {
         if (player.xPosition < currentRoom.rightBoundary) {
             player.xPosition += player.speed
+            player.direction = "right"
         }
     } else if (e.key == "ArrowDown") {
         if (player.yPosition < currentRoom.bottomBoundary) {
             player.yPosition += player.speed
+            player.direction = "down"
         }
     } else if (e.key == "ArrowUp") {
         if (player.yPosition > currentRoom.topBoundary) {
             player.yPosition -= player.speed
+            player.direction = "up"
         }
     } else if (e.key == "z"){
         let fireball = new Projectile(player, "fire", 60, 60)
@@ -64,6 +68,7 @@ function drawProjectiles() {
 
 function gameLoop() {
     renderScene();
+    // Projectile.cleanup();
     if (!player.collision){
         if (checkCollision(player, enemy1)){
             console.log("Collision!!")
