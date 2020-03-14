@@ -4,7 +4,7 @@ const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
-let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png", 5, 40, 40);
+let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png", 10, 5, 40, 40);
 let projectiles = [];
 
 document.addEventListener('keydown', function(e){
