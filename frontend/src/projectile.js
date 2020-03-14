@@ -23,7 +23,7 @@ class Projectile extends GameObject {
             this.sheetCol = 0;
         }
         this.sheetCol += 1;
-        this.xPosition -= this.speed;
+        this.moveInFiredDirection();
     }
 
     setAnimationDirection(){
@@ -57,6 +57,23 @@ class Projectile extends GameObject {
                     this.sheetRow = 0;
                     break;
             }
+        }
+    }
+
+    moveInFiredDirection(){
+        switch (this.direction) {
+            case "left":
+                this.xPosition -= player.speed;
+                break;
+            case "right":
+                this.xPosition += player.speed
+                break;
+            case "down":
+                this.yPosition += player.speed
+                break;
+            case "up":
+                this.yPosition -= player.speed
+                break;
         }
     }
 
