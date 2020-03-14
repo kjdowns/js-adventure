@@ -5,9 +5,30 @@ class Player extends GameObject {
         this.xPosition = 380;
         this.yPosition = 400;
         this.speed = 10;
-        this.width = 50;
-        this.height = 50;
+        this.width = 26;
+        this.height = 26;
         this.sprite.src = "img/sprite-sheet.png";
+    }
+
+    animate(){
+
+    }
+
+    setAnimationDirection(){
+        switch (this.direction) {
+            // case "up":
+            //     this.sheetRow = ;
+            // break;
+            // case "down":
+            //     this.sheetRow = ;
+            // break;
+            case "left":
+                this.sheetRow = 9;
+            break;
+            case "right":
+                this.sheetRow = 1;
+            break;
+        }
     }
 
 }
