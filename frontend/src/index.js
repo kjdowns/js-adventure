@@ -59,6 +59,27 @@ function checkCollision(entity1, entity2){
     }
 }
 
+function handleCollisions(){
+    //Check player collision with enemy
+    if (!player.collision){
+        if (checkCollision(player, enemy1)){
+            console.log("Collision!!")
+            player.collision = true;
+            player.hp -= 1;
+            setTimeout(() => {player.collision = false}, 1000);
+        }
+    }
+    projectiles.forEach(projectile => {
+        if (!projectile.collision) {
+            if (checkCollision(projectile, enemy1)){
+                console.log("Collision!!")
+                projectile.collision = true;
+                enemy1.hp -= 5;
+            }
+        }
+    })
+}
+
 function drawEntity(entity) {
     ctx.drawImage(entity.sprite, 0, 0, 35, 35, entity.xPosition, entity.yPosition, entity.width, entity.height)
 }
@@ -70,15 +91,9 @@ function drawProjectiles() {
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     window.requestAnimationFrame(renderScene);
+    handleCollisions();
     // renderScene();
     // Projectile.cleanup();
-    if (!player.collision){
-        if (checkCollision(player, enemy1)){
-            console.log("Collision!!")
-            player.collision = true;
-            player.hp -= 1;
-            setTimeout(() => {player.collision = false}, 1000);
-        }
-    }
+    
 }
 setInterval(gameLoop,(100/30));
