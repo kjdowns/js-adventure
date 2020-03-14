@@ -5,8 +5,8 @@ class Player extends GameObject {
         this.xPosition = 380;
         this.yPosition = 400;
         this.speed = 10;
-        this.width = 26;
-        this.height = 26;
+        this.width = 32;
+        this.height = 32;
         this.sprite.src = "img/sprite-sheet.png";
     }
 

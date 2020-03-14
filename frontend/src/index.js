@@ -68,7 +68,9 @@ function drawProjectiles() {
 }
 
 function gameLoop() {
-    renderScene();
+    ctx.clearRect(0,0,800, 480)
+    window.requestAnimationFrame(renderScene);
+    // renderScene();
     // Projectile.cleanup();
     if (!player.collision){
         if (checkCollision(player, enemy1)){
@@ -79,4 +81,4 @@ function gameLoop() {
         }
     }
 }
-setInterval(gameLoop,15);
+setInterval(gameLoop,(100/30));

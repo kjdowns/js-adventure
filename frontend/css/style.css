@@ -7,6 +7,16 @@ main {
     justify-content: center;
 }
 
+#canvas-wrapper {
+    position: relative;
+}
+
+#mainCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 #top-panel {
     display: flex;
     justify-content: center;
