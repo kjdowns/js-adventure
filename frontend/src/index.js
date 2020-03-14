@@ -39,7 +39,8 @@ document.addEventListener('keydown', function(e){
 
 function renderScene() {
     currentRoom.render();
-    drawEntity(player);
+    player.animate();
+    // drawEntity(player);
     drawEntity(enemy1);
     drawProjectiles(); 
 }

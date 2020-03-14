@@ -11,7 +11,12 @@ class Player extends GameObject {
     }
 
     animate(){
-
+        this.setAnimationDirection();
+        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 50, 50 );
+        if (this.sheetCol > 8) {
+            this.sheetCol = 0;
+        }
+        this.sheetCol += 1;
     }
 
     setAnimationDirection(){
