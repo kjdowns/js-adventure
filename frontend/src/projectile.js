@@ -17,12 +17,47 @@ class Projectile extends GameObject {
     }
 
     animate(){
-        ctx.drawImage(this.sprite, (this.width * this.sheetRow), (this.height * this.sheetCol), this.width, this.height, this.xPosition, this.yPosition, 40, 40 );
-        if (this.sheetRow > 8) {
-            this.sheetRow = 0;
+        this.setAnimationDirection();
+        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 40, 40 );
+        if (this.sheetCol > 8) {
+            this.sheetCol = 0;
         }
-        this.sheetRow += 1;
+        this.sheetCol += 1;
         this.xPosition -= this.speed;
+    }
+
+    setAnimationDirection(){
+        if (this.type == "fire") {
+            switch (this.direction) {
+                case "up":
+                    this.sheetRow = 2;
+                    break;
+                case "down":
+                    this.sheetRow = 6;
+                    break;
+                case "left":
+                    this.sheetRow = 0;
+                    break;
+                case "right":
+                    this.sheetRow = 4;
+                    break;
+            }
+        } else {
+            switch (this.direction) {
+                case "up":
+                    this.sheetRow = 6;
+                    break;
+                case "down":
+                    this.sheetRow = 2;
+                    break;
+                case "left":
+                    this.sheetRow = 4;
+                    break;
+                case "right":
+                    this.sheetRow = 0;
+                    break;
+            }
+        }
     }
 
     static cleanup(){
