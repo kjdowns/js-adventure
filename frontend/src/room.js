@@ -6,6 +6,8 @@ class Room {
         this.rightBoundary = 720; //x right
         this.topBoundary = 65; // y top
         this.bottomBoundary = 400; //y bottom
+        this.projectiles = [];
+        this.enemies = [];
     }
 
     render(){
