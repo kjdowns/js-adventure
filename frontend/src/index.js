@@ -38,8 +38,19 @@ document.addEventListener('keydown', function(e){
     }
 })
 
-function renderHeartBar() {
-    
+function updateHeartBar() {
+    let counter = player.hp;
+    for (let i = 0; i < heartBar.children.length; i++) {
+        if (counter > 1) {
+            heartBar.children[i].src = "img/heart_full.png";
+            counter -= 2;
+        } else if (counter == 1) {
+            heartBar.children[i].src = "img/heart_half.png";
+            counter -= 1;
+        } else {
+            heartBar.children[i].src = "img/heart_empty.png"
+        }         
+    }
 }
 
 function renderScene() {
