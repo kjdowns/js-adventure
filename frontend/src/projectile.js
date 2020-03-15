@@ -63,16 +63,16 @@ class Projectile extends GameObject {
     moveInFiredDirection(){
         switch (this.direction) {
             case "left":
-                this.xPosition -= player.speed;
+                this.xPosition -= this.speed;
                 break;
             case "right":
-                this.xPosition += player.speed
+                this.xPosition += this.speed
                 break;
             case "down":
-                this.yPosition += player.speed
+                this.yPosition += this.speed
                 break;
             case "up":
-                this.yPosition -= player.speed
+                this.yPosition -= this.speed
                 break;
         }
     }
