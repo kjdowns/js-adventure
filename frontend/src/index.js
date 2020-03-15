@@ -6,7 +6,6 @@ const heartBar = document.getElementById("hp-bar");
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png", 10, 5, 40, 40);
-let projectiles = [];
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
@@ -31,10 +30,10 @@ document.addEventListener('keydown', function(e){
         }
     } else if (e.key == "z"){
         let fireball = new Projectile(player, "fire", 60, 60)
-        projectiles.push(fireball);
+        currentRoom.projectiles.push(fireball);
     } else if (e.key == "x"){
         let icicle = new Projectile(player, "ice", 60, 60)
-        projectiles.push(icicle);
+        currentRoom.projectiles.push(icicle);
     }
 })
 
@@ -86,7 +85,7 @@ function handleCollisions(){
         }
     }
     //Check projectile collision with enemy
-    projectiles.forEach(projectile => {
+    currentRoom.projectiles.forEach(projectile => {
         if (!projectile.collision) {
             if (checkCollision(projectile, enemy1)){
                 console.log("Collision!!")
@@ -102,7 +101,7 @@ function drawEntity(entity) {
 }
 
 function drawProjectiles() {
-    projectiles.forEach(projectile => projectile.animate())
+    currentRoom.projectiles.forEach(projectile => projectile.animate())
 }
 
 function gameLoop() {
