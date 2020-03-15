@@ -90,10 +90,10 @@ function drawProjectiles() {
 
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
-    window.requestAnimationFrame(renderScene);
+    renderScene();
     handleCollisions();
-    // renderScene();
     // Projectile.cleanup();
-    
+    requestAnimationFrame(gameLoop)
 }
-setInterval(gameLoop,(100/30));
+
+gameLoop();
