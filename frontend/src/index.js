@@ -81,6 +81,7 @@ function handleCollisions(){
             console.log("Collision!!")
             player.collision = true;
             player.hp -= 1;
+            updateHeartBar();
             setTimeout(() => {player.collision = false}, 1000);
         }
     }
