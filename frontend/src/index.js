@@ -45,7 +45,6 @@ function renderHeartBar() {
 function renderScene() {
     currentRoom.render();
     player.animate();
-    // drawEntity(player);
     drawEntity(enemy1);
     drawProjectiles(); 
 }
@@ -74,6 +73,7 @@ function handleCollisions(){
             setTimeout(() => {player.collision = false}, 1000);
         }
     }
+    //Check projectile collision with enemy
     projectiles.forEach(projectile => {
         if (!projectile.collision) {
             if (checkCollision(projectile, enemy1)){
@@ -97,7 +97,6 @@ function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
     handleCollisions();
-    // Projectile.cleanup();
     requestAnimationFrame(gameLoop)
 }
 
