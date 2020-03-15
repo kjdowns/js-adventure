@@ -2,6 +2,7 @@
 
 const gameCanvas = document.getElementById("gameCanvas");
 const ctx = gameCanvas.getContext("2d")
+const heartBar = document.getElementById("hp-bar");
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png", 10, 5, 40, 40);
@@ -36,6 +37,10 @@ document.addEventListener('keydown', function(e){
         projectiles.push(icicle);
     }
 })
+
+function renderHeartBar() {
+    
+}
 
 function renderScene() {
     currentRoom.render();
