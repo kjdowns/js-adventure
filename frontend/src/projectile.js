@@ -30,38 +30,38 @@ class Projectile extends GameObject {
         if (this.type == "fire") {
             switch (this.direction) {
                 case "up":
-                case "up-idle":
+                case "idle-up":
                     this.sheetRow = 2;
                     break;
                 case "down":
-                case "down-idle":
+                case "idle-down":
                     this.sheetRow = 6;
                     break;
                 case "left":
-                case "left-idle":
+                case "idle-left":
                     this.sheetRow = 0;
                     break;
                 case "right":
-                case "right-idle":
+                case "idle-right":
                     this.sheetRow = 4;
                     break;
             }
         } else {
             switch (this.direction) {
                 case "up":
-                case "up-idle":
+                case "idle-up":
                     this.sheetRow = 6;
                     break;
                 case "down":
-                case "down-idle":
+                case "idle-down":
                     this.sheetRow = 2;
                     break;
                 case "left":
-                case "left-idle":
+                case "idle-left":
                     this.sheetRow = 4;
                     break;
                 case "right":
-                case "left-idle":
+                case "idle-right":
                     this.sheetRow = 0;
                     break;
             }
@@ -71,15 +71,19 @@ class Projectile extends GameObject {
     moveInFiredDirection(){
         switch (this.direction) {
             case "left":
+            case "idle-left":
                 this.xPosition -= this.speed;
                 break;
             case "right":
+            case "idle-right":
                 this.xPosition += this.speed
                 break;
             case "down":
+            case "idle-down":
                 this.yPosition += this.speed
                 break;
             case "up":
+            case "idle-up":
                 this.yPosition -= this.speed
                 break;
         }
