@@ -23,4 +23,18 @@ class GameObject {
         }
     }
 
+    checkCollision(entity){
+        let box1 = this.collisionBox();
+        let box2 = entity.collisionBox();
+    
+        if (box1.x < box2.x + 30 &&
+            box1.x + 30 > box2.x &&
+            box1.y < box2.y + 30 &&
+            box1.y + 30 > box2.y) {
+                return true;
+        } else {
+            return false;
+        }
+    }
+
 }

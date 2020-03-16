@@ -5,7 +5,7 @@ const ctx = gameCanvas.getContext("2d")
 const heartBar = document.getElementById("hp-bar");
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
-let enemy1 = new Enemy("Fire Sprite", "img/fire-sprite.png", 10, 5, 40, 40);
+let enemy = new Enemy("Fire Sprite", "img/fire-sprite.png", 10, 5, 40, 40);
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
@@ -55,28 +55,28 @@ function updateHeartBar() {
 function renderScene() {
     currentRoom.render();
     player.animate();
-    drawEntity(enemy1);
+    drawEntity(enemy);
     drawProjectiles(); 
 }
 
-function checkCollision(entity1, entity2){
-    let box1 = entity1.collisionBox();
-    let box2 = entity2.collisionBox();
+// function checkCollision(entity1, entity2){
+//     let box1 = entity1.collisionBox();
+//     let box2 = entity2.collisionBox();
 
-    if (box1.x < box2.x + 30 &&
-        box1.x + 30 > box2.x &&
-        box1.y < box2.y + 30 &&
-        box1.y + 30 > box2.y) {
-            return true;
-    } else {
-        return false;
-    }
-}
+//     if (box1.x < box2.x + 30 &&
+//         box1.x + 30 > box2.x &&
+//         box1.y < box2.y + 30 &&
+//         box1.y + 30 > box2.y) {
+//             return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 function handleCollisions(){
     //Check player collision with enemy
     if (!player.collision){
-        if (checkCollision(player, enemy1)){
+        if (player.checkCollision(enemy)){
             console.log("Collision!!")
             player.collision = true;
             player.hp -= 1;
@@ -87,10 +87,10 @@ function handleCollisions(){
     //Check projectile collision with enemy
     currentRoom.projectiles.forEach(projectile => {
         if (!projectile.collision) {
-            if (checkCollision(projectile, enemy1)){
+            if (projectile.checkCollision(enemy)){
                 console.log("Collision!!")
                 projectile.collision = true;
-                enemy1.hp -= 5;
+                enemy.hp -= 5;
             }
         }
     })

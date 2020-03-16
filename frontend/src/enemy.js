@@ -11,4 +11,5 @@ class Enemy extends GameObject {
         this.sprite = new Image();
         this.sprite.src = src;
     }
+
 }
