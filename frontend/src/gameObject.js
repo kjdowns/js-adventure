@@ -8,7 +8,7 @@ class GameObject {
         this.speed;
         this.sprite = new Image();
         this.sprite.src;
-        this.direction;
+        this.direction = "down-idle";
         this.sheetRow = 0;
         this.sheetCol = 0;
         this.collision = false;

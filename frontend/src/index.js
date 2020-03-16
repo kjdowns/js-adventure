@@ -41,6 +41,18 @@ document.addEventListener('keydown', function(e){
     }
 })
 
+document.addEventListener('keyup', function(e){
+    if (e.key == "ArrowLeft") {
+            player.direction = "idle-left"
+    } else if (e.key == "ArrowRight") {
+            player.direction = "idle-right"
+    } else if (e.key == "ArrowDown") {
+            player.direction = "idle-down"
+    } else if (e.key == "ArrowUp") {
+            player.direction = "idle-up"
+    }
+})
+
 function updateHeartBar() {
     let counter = player.hp;
     for (let i = 0; i < heartBar.children.length; i++) {
