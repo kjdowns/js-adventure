@@ -11,6 +11,7 @@ class GameObject {
         this.direction = "idle-down";
         this.sheetRow = 0;
         this.sheetCol = 0;
+        this.count = 0;
         this.collision = false;
     }
 

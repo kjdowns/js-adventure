@@ -9,6 +9,8 @@ class Projectile extends GameObject {
         this.speed = 5;
         this.height= 64;
         this.width = 64;
+        this.frames = 8;
+        this.delay = 5;
         if (type == "fire") {
             this.sprite.src = "img/fireball.png"
         } else {
@@ -17,12 +19,16 @@ class Projectile extends GameObject {
     }
 
     animate(){
+        this.count++;
         this.setAnimationDirection();
         ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 40, 40 );
-        if (this.sheetCol > 8) {
-            this.sheetCol = 0;
+        if (this.count === this.delay){
+            if (this.sheetCol >= 2) {
+                this.sheetCol = 0;
+            }
+            this.sheetCol += 1;
+            this.count = 0;
         }
-        this.sheetCol += 1;
         this.moveInFiredDirection();
     }
 

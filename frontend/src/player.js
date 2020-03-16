@@ -10,7 +10,6 @@ class Player extends GameObject {
         this.sprite.src = "img/mage-light.png";
         this.frames = 3;
         this.delay = 8;
-        this.count = 0;
     }
 
     animate(){
