@@ -18,20 +18,6 @@ class Projectile extends GameObject {
         }
     }
 
-    animate(){
-        this.count++;
-        this.setAnimationDirection();
-        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 40, 40 );
-        if (this.count === this.delay){
-            if (this.sheetCol >= 2) {
-                this.sheetCol = 0;
-            }
-            this.sheetCol += 1;
-            this.count = 0;
-        }
-        this.moveInFiredDirection();
-    }
-
     setAnimationDirection(){
         if (this.type == "fire") {
             switch (this.direction) {

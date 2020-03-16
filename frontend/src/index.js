@@ -107,7 +107,10 @@ function drawEntity(entity) {
 }
 
 function drawProjectiles() {
-    currentRoom.projectiles.forEach(projectile => projectile.animate())
+    currentRoom.projectiles.forEach(projectile => {
+        projectile.animate()
+        projectile.moveInFiredDirection();
+    })
 }
 
 function gameLoop() {
