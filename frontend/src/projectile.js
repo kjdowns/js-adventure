@@ -30,30 +30,38 @@ class Projectile extends GameObject {
         if (this.type == "fire") {
             switch (this.direction) {
                 case "up":
+                case "up-idle":
                     this.sheetRow = 2;
                     break;
                 case "down":
+                case "down-idle":
                     this.sheetRow = 6;
                     break;
                 case "left":
+                case "left-idle":
                     this.sheetRow = 0;
                     break;
                 case "right":
+                case "right-idle":
                     this.sheetRow = 4;
                     break;
             }
         } else {
             switch (this.direction) {
                 case "up":
+                case "up-idle":
                     this.sheetRow = 6;
                     break;
                 case "down":
+                case "down-idle":
                     this.sheetRow = 2;
                     break;
                 case "left":
+                case "left-idle":
                     this.sheetRow = 4;
                     break;
                 case "right":
+                case "left-idle":
                     this.sheetRow = 0;
                     break;
             }
