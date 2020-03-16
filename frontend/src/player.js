@@ -4,31 +4,38 @@ class Player extends GameObject {
         this.hp = 10;
         this.xPosition = 380;
         this.yPosition = 400;
-        this.speed = 10;
-        this.width = 32;
-        this.height = 32;
-        this.sprite.src = "img/sprite-sheet.png";
+        this.speed = 5;
+        this.width = 48;
+        this.height = 64;
+        this.sprite.src = "img/mage-light.png";
+        this.frames = 3;
+        this.delay = 8;
+        this.count = 0;
     }
 
     animate(){
+        this.count++;
         this.setAnimationDirection();
-        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 50, 50 );
-        if (this.sheetCol > 8) {
-            this.sheetCol = 0;
+        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 40, 40 );
+        if (this.count === this.delay){
+            if (this.sheetCol >= 2) {
+                this.sheetCol = 0;
+            }
+            this.sheetCol += 1;
+            this.count = 0;
         }
-        this.sheetCol += 1;
     }
 
     setAnimationDirection(){
         switch (this.direction) {
-            // case "up":
-            //     this.sheetRow = ;
-            // break;
-            // case "down":
-            //     this.sheetRow = ;
-            // break;
+            case "up":
+                this.sheetRow = 0;
+            break;
+            case "down":
+                this.sheetRow = 2;
+            break;
             case "left":
-                this.sheetRow = 9;
+                this.sheetRow = 3;
             break;
             case "right":
                 this.sheetRow = 1;
