@@ -6,7 +6,7 @@ let player = new Player();
 
 //Initialize enemies
 for (let i = 0; i < 3; i++) {
-    currentRoom.enemies.push(new Enemy("Slime", "img/slime.png", 5, 3, 24, 24))  
+    currentRoom.enemies.push(new Enemy("slime", "img/slime.png", 5, 3, 24, 24))  
 }
 
 document.addEventListener('keydown', function(e){
