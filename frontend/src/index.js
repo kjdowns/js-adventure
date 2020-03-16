@@ -60,7 +60,6 @@ function renderScene() {
     currentRoom.render();
     player.animate();
     currentRoom.enemies.forEach( enemy => drawEntity(enemy));
-    // drawEntity(enemy);
     drawProjectiles(); 
 }
 
