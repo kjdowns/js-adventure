@@ -16,10 +16,10 @@ class GameObject {
         this.collision = false;
     }
 
-    animate(){
+    animate(width, height){
         this.count++;
         this.setAnimationDirection();
-        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, 40, 40 );
+        ctx.drawImage(this.sprite, (this.width * this.sheetCol), (this.height * this.sheetRow), this.width, this.height, this.xPosition, this.yPosition, width, height );
         if (this.count === this.delay){
             if (this.sheetCol >= this.frames -1) {
                 this.sheetCol = 0;

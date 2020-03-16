@@ -1,5 +1,5 @@
 class Enemy extends GameObject {
-    constructor(name, src, hp, speed, height, width){
+    constructor(name, src, hp, speed, height, width, frames){
         super();
         this.name = name;
         this.hp = hp;
@@ -10,11 +10,13 @@ class Enemy extends GameObject {
         this.width = width;
         this.sprite = new Image();
         this.sprite.src = src;
+        this.frames = frames;
+        this.delay = 10;
     }
 
     setAnimationDirection(){
         switch (this.name) {
-            case slime:
+            case "slime":
                 switch (this.direction) {
                     case "up":
                     case "idle-up":

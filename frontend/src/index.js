@@ -6,7 +6,7 @@ let player = new Player();
 
 //Initialize enemies
 for (let i = 0; i < 3; i++) {
-    currentRoom.enemies.push(new Enemy("slime", "img/slime.png", 5, 3, 24, 24))  
+    currentRoom.enemies.push(new Enemy("slime", "img/slime.png", 5, 3, 24, 24, 3))  
 }
 
 document.addEventListener('keydown', function(e){
@@ -68,8 +68,8 @@ function updateHeartBar() {
 
 function renderScene() {
     currentRoom.render();
-    player.animate();
-    currentRoom.enemies.forEach( enemy => drawEntity(enemy));
+    player.animate(40, 40);
+    currentRoom.enemies.forEach( enemy => enemy.animate(25, 25));
     drawProjectiles(); 
 }
 
