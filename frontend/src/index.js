@@ -1,7 +1,5 @@
-// Display canvas backround test code
 
-const gameCanvas = document.getElementById("gameCanvas");
-const ctx = gameCanvas.getContext("2d")
+const ctx = document.getElementById("gameCanvas").getContext("2d")
 const heartBar = document.getElementById("hp-bar");
 let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
