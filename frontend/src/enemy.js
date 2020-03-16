@@ -12,4 +12,49 @@ class Enemy extends GameObject {
         this.sprite.src = src;
     }
 
+    setAnimationDirection(){
+        switch (this.name) {
+            case slime:
+                switch (this.direction) {
+                    case "up":
+                    case "idle-up":
+                        this.sheetRow = 0;
+                        break;
+                    case "right":
+                    case "idle-right":
+                        this.sheetRow = 1;
+                        break;
+                    case "down":
+                    case "idle-down":
+                        this.sheetRow = 2;
+                        break;
+                    case "left":
+                    case "idle-left":
+                        this.sheetRow = 1;
+                        break;
+                }
+                break;
+        
+            default:
+                switch (this.direction) {
+                    case "up":
+                    case "idle-up":
+                        this.sheetRow = 0;
+                        break;
+                    case "right":
+                    case "idle-right":
+                        this.sheetRow = 1;
+                        break;
+                    case "down":
+                    case "idle-down":
+                        this.sheetRow = 2;
+                        break;
+                    case "left":
+                    case "idle-left":
+                        this.sheetRow = 3;
+                        break;
+                }
+                break;
+        }
+    }
 }
