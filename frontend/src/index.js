@@ -67,6 +67,10 @@ function renderScene() {
 
 function updateGameObjects() {
     player.update();
+    currentRoom.enemies.forEach( enemy => {
+        enemy.decideMovement();
+        enemy.update();
+    })
 }
 
 function handleCollisions(){

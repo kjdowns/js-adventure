@@ -13,7 +13,7 @@ class Enemy extends GameObject {
 
     decideMovement(){
         this.movementCooldown++
-        if (this.movementCooldown >= 300){
+        if (this.movementCooldown >= 40){
             switch (Math.floor(Math.random() * 8) +1) {
                 case 1:
                     this.direction = "left"
@@ -49,49 +49,49 @@ class Enemy extends GameObject {
             case "slime":
                 this.sprite.src = "img/slime.png"
                 this.hp = 5;
-                this.speed = 3;
+                this.speed = 1;
                 this.height = 24;
                 this.width = 24;
                 break;
             case "bat-black":
                 this.sprite.src = "img/bat-black.png"
                 this.hp = 10;
-                this.speed = 5;
+                this.speed = 2;
                 this.height = 64;
                 this.width = 48;
                 break;
             case "bat-red":
                 this.sprite.src = "img/bat-red.png"
                 this.hp = 10;
-                this.speed = 5;
+                this.speed = 2;
                 this.height = 64;
                 this.width = 48;
                 break;
             case "zombie":
                 this.sprite.src = "img/zombie.png"
                 this.hp = 15;
-                this.speed = 4;
+                this.speed = 1;
                 this.height = 64;
                 this.width = 48;
                 break;
             case "arachne":
                 this.sprite.src = "img/arachne.png"
                 this.hp = 25;
-                this.speed = 6;
+                this.speed = 4;
                 this.height = 64;
                 this.width = 48;
                 break;
             case "black-reaper":
                 this.sprite.src = "img/black-reaper.png"
                 this.hp = 40;
-                this.speed = 8;
+                this.speed = 6;
                 this.height = 128;
                 this.width = 96;
                 break;
             case "golden-reaper":
                 this.sprite.src = "img/golden-reaper.png"
                 this.hp = 40;
-                this.speed = 8;
+                this.speed = 6;
                 this.height = 128;
                 this.width = 96;
                 break;

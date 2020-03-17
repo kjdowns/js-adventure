@@ -19,23 +19,23 @@ class GameObject {
     update(){
         switch (this.direction) {
             case "left":
-                if (player.xPosition > currentRoom.leftBoundary){
-                    player.xPosition -= player.speed;
+                if (this.xPosition > currentRoom.leftBoundary){
+                    this.xPosition -= this.speed;
                 }
                 break;
             case "right":
-                if (player.xPosition < currentRoom.rightBoundary) {
-                    player.xPosition += player.speed
+                if (this.xPosition < currentRoom.rightBoundary) {
+                    this.xPosition += this.speed
                 }
                 break;
             case "down":
-                if (player.yPosition < currentRoom.bottomBoundary) {
-                    player.yPosition += player.speed
+                if (this.yPosition < currentRoom.bottomBoundary) {
+                    this.yPosition += this.speed
                 }
                 break;
             case "up":
-                if (player.yPosition > currentRoom.topBoundary) {
-                    player.yPosition -= player.speed
+                if (this.yPosition > currentRoom.topBoundary) {
+                    this.yPosition -= this.speed
                 }
                 break;
         
