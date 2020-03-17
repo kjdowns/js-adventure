@@ -1,3 +1,0 @@
-class EnemiesController < ApplicationController
-    
-end
