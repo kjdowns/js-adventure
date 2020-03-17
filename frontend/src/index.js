@@ -5,9 +5,13 @@ let currentRoom = new Room("img/dungeon_entrance.JPG");
 let player = new Player();
 
 //Initialize enemies
-for (let i = 0; i < 3; i++) {
-    currentRoom.enemies.push(new Enemy("slime", "img/slime.png", 5, 3, 24, 24, 3))  
-}
+    currentRoom.enemies.push(new Enemy("slime")) 
+    currentRoom.enemies.push(new Enemy("bat-black"))
+    currentRoom.enemies.push(new Enemy("bat-red"))
+    currentRoom.enemies.push(new Enemy("zombie"))
+    currentRoom.enemies.push(new Enemy("arachne"))
+    currentRoom.enemies.push(new Enemy("black-reaper"))
+    currentRoom.enemies.push(new Enemy("golden-reaper")) 
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
@@ -69,7 +73,7 @@ function updateHeartBar() {
 function renderScene() {
     currentRoom.render();
     player.animate(40, 40);
-    currentRoom.enemies.forEach( enemy => enemy.animate(25, 25));
+    drawEnemies();
     drawProjectiles(); 
 }
 
@@ -100,15 +104,31 @@ function handleCollisions(){
     })
 }
 
-function drawEntity(entity) {
-    ctx.drawImage(entity.sprite, 0, 0, 35, 35, entity.xPosition, entity.yPosition, entity.width, entity.height)
-}
-
 function drawProjectiles() {
     currentRoom.projectiles.forEach(projectile => {
-        projectile.animate()
+        projectile.animate(40, 40)
         projectile.moveInFiredDirection();
     })
+}
+
+function drawEnemies() {
+    currentRoom.enemies.forEach( enemy => {
+        switch (enemy.name) {
+            case "slime":
+                enemy.animate(25, 25)
+                break;
+            case "bat-black":
+            case "bat-red":
+            case "zombie":
+            case "arachne":
+                enemy.animate(40, 40)
+                break;
+            case "black-reaper":
+            case "golden-reaper":
+                enemy.animate(60, 60)
+                break;
+        }
+    });
 }
 
 function gameLoop() {
