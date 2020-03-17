@@ -127,11 +127,16 @@ function drawEnemies() {
     });
 }
 
+function removeKilledEnemies(){
+    currentRoom.enemies = currentRoom.enemies.filter( enemy => enemy.hp >= 0);
+}
+
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
     handleCollisions();
     updateGameObjects();
+    removeKilledEnemies();
     requestAnimationFrame(gameLoop)
 }
 
