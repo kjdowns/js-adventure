@@ -15,25 +15,13 @@ let player = new Player();
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
-        if (player.xPosition > currentRoom.leftBoundary){
-            player.xPosition -= player.speed;
             player.direction = "left"
-        }
     } else if (e.key == "ArrowRight") {
-        if (player.xPosition < currentRoom.rightBoundary) {
-            player.xPosition += player.speed
             player.direction = "right"
-        }
     } else if (e.key == "ArrowDown") {
-        if (player.yPosition < currentRoom.bottomBoundary) {
-            player.yPosition += player.speed
             player.direction = "down"
-        }
     } else if (e.key == "ArrowUp") {
-        if (player.yPosition > currentRoom.topBoundary) {
-            player.yPosition -= player.speed
             player.direction = "up"
-        }
     } else if (e.key == "z"){
         let fireball = new Projectile(player, "fire", 60, 60)
         currentRoom.projectiles.push(fireball);
@@ -75,6 +63,10 @@ function renderScene() {
     player.animate(40, 40);
     drawEnemies();
     drawProjectiles(); 
+}
+
+function updateGameObjects() {
+    player.update();
 }
 
 function handleCollisions(){
@@ -135,6 +127,7 @@ function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
     handleCollisions();
+    updateGameObjects();
     requestAnimationFrame(gameLoop)
 }
 
