@@ -16,6 +16,34 @@ class GameObject {
         this.collision = false;
     }
 
+    update(){
+        switch (this.direction) {
+            case "left":
+                if (player.xPosition > currentRoom.leftBoundary){
+                    player.xPosition -= player.speed;
+                }
+                break;
+            case "right":
+                if (player.xPosition < currentRoom.rightBoundary) {
+                    player.xPosition += player.speed
+                }
+                break;
+            case "down":
+                if (player.yPosition < currentRoom.bottomBoundary) {
+                    player.yPosition += player.speed
+                }
+                break;
+            case "up":
+                if (player.yPosition > currentRoom.topBoundary) {
+                    player.yPosition -= player.speed
+                }
+                break;
+        
+            default:
+                break;
+        }
+    }
+
     animate(width, height){
         this.count++;
         this.setAnimationDirection();
