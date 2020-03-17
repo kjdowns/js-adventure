@@ -8,35 +8,40 @@ class Enemy extends GameObject {
         this.setAttributeByName();
         this.frames = 3;
         this.delay = 10;
+        this.movementCooldown = 0
     }
 
     decideMovement(){
-        switch (Math.floor(Math.random() * 8) +1) {
-            case 1:
-                this.direction = "left"
-                break;
-            case 2:
-                this.direction = "idle-left"
-                break;
-            case 3:
-                this.direction = "up"
-                break;
-            case 4:
-                this.direction = "idle-up"
-                break;
-            case 5:
-                this.direction = "right"
-                break;
-            case 6:
-                this.direction = "idle-right"
-                break;
-            case 7:
-                this.direction = "down"
-                break;
-            case 8:
-                this.direction = "idle-down"
-                break;
-        }
+        this.movementCooldown++
+        if (this.movementCooldown >= 300){
+            switch (Math.floor(Math.random() * 8) +1) {
+                case 1:
+                    this.direction = "left"
+                    break;
+                case 2:
+                    this.direction = "idle-left"
+                    break;
+                case 3:
+                    this.direction = "up"
+                    break;
+                case 4:
+                    this.direction = "idle-up"
+                    break;
+                case 5:
+                    this.direction = "right"
+                    break;
+                case 6:
+                    this.direction = "idle-right"
+                    break;
+                case 7:
+                    this.direction = "down"
+                    break;
+                case 8:
+                    this.direction = "idle-down"
+                    break;
+            }
+            this.movementCooldown = 0;
+        }   
     }
 
     setAttributeByName(){
