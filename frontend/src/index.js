@@ -134,6 +134,14 @@ function removeKilledEnemies(){
     currentRoom.enemies = currentRoom.enemies.filter( enemy => enemy.hp >= 0);
 }
 
+function checkGameState() {
+    if (currentRoom.enemies.length <= 0) {
+        currentRoomCounter += 1
+        isPaused = true;
+        initializeRoom();
+    }
+}
+
 function parseEnemies(level) {
     fetch(`http://localhost:3000/rooms/${level}/enemies`)
     .then((response) => response.json())
@@ -158,6 +166,7 @@ function gameLoop() {
         handleCollisions();
         updateGameObjects();
         removeKilledEnemies();
+        checkGameState();
     }
     requestAnimationFrame(gameLoop)
 }
