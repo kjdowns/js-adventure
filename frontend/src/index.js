@@ -49,6 +49,9 @@ document.addEventListener('keyup', function(e){
     }
 })
 
+saveButton.addEventListener('click', uploadSave);
+loadButton.addEventListener('click', loadSave)
+
 function updateHeartBar() {
     let counter = player.hp;
     for (let i = 0; i < heartBar.children.length; i++) {
