@@ -4,6 +4,8 @@ Javascript Adventure is a 2D Dungeon crawling game using HTML5, Javascript, and 
 
 ## Installation
 
+Fork and clone the respository to your local machine to play.
+
 Setting up the Server
 
 You can set up the back end Rails server by navigating to backend\js-adventure in terminal and running `rails s` to start the rails server
