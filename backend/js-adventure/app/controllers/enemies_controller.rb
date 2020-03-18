@@ -1,7 +1,7 @@
 class EnemiesController < ApplicationController
     
     def index
-        enemies = Enemy.all
+        enemies = Enemy.where("room_id = ?", params[:room_id])
         render json: enemies
     end
 
