@@ -5,6 +5,7 @@ ctx.fillStyle = "cadetblue"
 const heartBar = document.getElementById("hp-bar");
 const dialogBox = new Image();
 dialogBox.src = "img/dialog-box.png"
+let isPaused = true;
 let currentRoomCounter = 1;
 let currentRoom;
 let player = new Player();
@@ -36,6 +37,8 @@ document.addEventListener('keyup', function(e){
             player.direction = "idle-down"
     } else if (e.key == "ArrowUp") {
             player.direction = "idle-up"
+    } else if (e.key == "Enter"){
+        isPaused = false;
     }
 })
 
@@ -63,7 +66,7 @@ function renderScene() {
 
 function renderDialogBox() {
     ctx.drawImage(dialogBox, 32, 320);
-    ctx.fillText("Level 1", 350, 365)
+    ctx.fillText(`Level ${currentRoomCounter}`, 350, 365)
     ctx.fillText("Press Enter to continue", 270, 405)
 }
 
@@ -149,7 +152,7 @@ function initializeRoom() {
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
-    renderDialogBox();
+    // renderDialogBox();
     handleCollisions();
     updateGameObjects();
     removeKilledEnemies();
