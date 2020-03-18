@@ -6,6 +6,8 @@ const heartBar = document.getElementById("hp-bar");
 const dialogBox = new Image();
 dialogBox.src = "img/dialog-box.png"
 let isPaused = true;
+let gameWon = false;
+let gameOver = false;
 let currentRoomCounter = 1;
 let currentRoom;
 let player = new Player();
@@ -161,7 +163,13 @@ function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
     if (isPaused) {
-        renderDialogBox(`Level ${currentRoomCounter}`, "Press Enter to continue");
+        if (gameWon){
+            renderDialogBox("Congratulations!", "You cleared the Dungeon!");
+        } else if (gameOver){
+            renderDialogBox("Game Over", "Refresh to try again!");
+        } else {
+            renderDialogBox(`Level ${currentRoomCounter}`, "Press Enter to continue");
+        }
     } else {
         handleCollisions();
         updateGameObjects();
