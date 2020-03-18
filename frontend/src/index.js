@@ -64,10 +64,10 @@ function renderScene() {
     drawProjectiles(); 
 }
 
-function renderDialogBox() {
+function renderDialogBox(line1, line2) {
     ctx.drawImage(dialogBox, 32, 320);
-    ctx.fillText(`Level ${currentRoomCounter}`, 350, 365)
-    ctx.fillText("Press Enter to continue", 270, 405)
+    ctx.fillText(line1, 350, 365)
+    ctx.fillText(line2, 270, 405)
 }
 
 function updateGameObjects() {
@@ -161,7 +161,7 @@ function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
     if (isPaused) {
-        renderDialogBox();
+        renderDialogBox(`Level ${currentRoomCounter}`, "Press Enter to continue");
     } else {
         handleCollisions();
         updateGameObjects();
