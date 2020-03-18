@@ -3,6 +3,9 @@ const ctx = document.getElementById("gameCanvas").getContext("2d")
 ctx.font = "24px Arial"
 ctx.fillStyle = "cadetblue"
 const heartBar = document.getElementById("hp-bar");
+const inputBox = document.getElementById("username");
+const saveButton = document.getElementById("save-button");
+const loadButton = document.getElementById("load-button");
 const dialogBox = new Image();
 dialogBox.src = "img/dialog-box.png"
 let isPaused = true;
@@ -162,6 +165,10 @@ function parseEnemies(level) {
             currentRoom.enemies.push(new Enemy(enemy["name"]))
         })
     })
+}
+
+function uploadSave() {
+    
 }
 
 function initializeRoom() {
