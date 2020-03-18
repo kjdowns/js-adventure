@@ -1,6 +1,10 @@
 
 const ctx = document.getElementById("gameCanvas").getContext("2d")
+ctx.font = "24px Arial"
+ctx.fillStyle = "cadetblue"
 const heartBar = document.getElementById("hp-bar");
+const dialogBox = new Image();
+dialogBox.src = "img/dialog-box.png"
 let currentRoomCounter = 1;
 let currentRoom;
 let player = new Player();
@@ -55,6 +59,12 @@ function renderScene() {
     player.animate(40, 40);
     drawEnemies();
     drawProjectiles(); 
+}
+
+function renderDialogBox() {
+    ctx.drawImage(dialogBox, 32, 320);
+    ctx.fillText("Level 1", 350, 365)
+    ctx.fillText("Press Enter to continue", 270, 405)
 }
 
 function updateGameObjects() {
@@ -139,6 +149,7 @@ function initializeRoom() {
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
+    renderDialogBox();
     handleCollisions();
     updateGameObjects();
     removeKilledEnemies();
