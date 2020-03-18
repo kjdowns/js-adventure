@@ -176,7 +176,11 @@ function gameLoop() {
         removeKilledEnemies();
         checkGameState();
     }
-    requestAnimationFrame(gameLoop)
+    if (gameWon || gameOver) {
+        
+    } else {
+        requestAnimationFrame(gameLoop)
+    }
 }
 
 initializeRoom();
