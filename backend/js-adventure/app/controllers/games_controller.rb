@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
     
     def show
-        raise params.inspect
+        game = Game.find_by(username: params[:id])
+        render json: game
     end
 
     def update
