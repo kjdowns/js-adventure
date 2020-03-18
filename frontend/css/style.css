@@ -21,6 +21,8 @@ main {
     display: flex;
     justify-content: center;
     color: cadetblue;
+    margin: 30px;
+    font-size: large;
 }
 
 #side-bar {
@@ -45,4 +47,38 @@ main {
 #movement-info img {
     height: 125px;
     width: 200px;
+}
+
+#input-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    color: cadetblue;
+    font-weight: 550;
+    font-size: 26px;
+    margin-top: 30px;
+}
+
+button {
+    border-radius: 8px;
+    border-color: darkcyan;
+    background-color: cadetblue;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 24px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#username {
+    border-radius: 8px;
+    padding: 5px 12px; 
+    font-size: medium;
+    margin: 10px;
+    background-color: cadetblue;
+    border-color: darkcyan;
 }
