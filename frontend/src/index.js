@@ -78,7 +78,6 @@ function handleCollisions(){
     if (!player.collision){
         currentRoom.enemies.forEach( enemy => {
             if (player.checkCollision(enemy)){
-                console.log("Collision!!")
                 player.collision = true;
                 player.hp -= 1;
                 updateHeartBar();
@@ -91,7 +90,6 @@ function handleCollisions(){
         if (!projectile.collision) {
             currentRoom.enemies.forEach( enemy => {
                 if (projectile.checkCollision(enemy)){
-                    console.log("Collision!!")
                     projectile.collision = true;
                     enemy.hp -= 5;
                 }
