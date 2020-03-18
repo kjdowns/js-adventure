@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index] do
     resources :enemies, only: [:index]
   end
+  resources :games, only: [:show, :update]
 end
