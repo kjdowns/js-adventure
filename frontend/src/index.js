@@ -177,10 +177,17 @@ function uploadSave() {
         body: JSON.stringify({username: inputBox.value, hp: player.hp, current_level: currentRoomCounter})
     }
     fetch(`http://localhost:3000/games/${inputBox.value}`, configObj)
-    // .then((response) => response.json())
-    // .then((object) => {
+}
 
-    // })
+function loadSave() {
+    fetch(`http://localhost:3000/games/${inputBox.value}`)
+    .then((response) => response.json())
+    .then(function (json){
+        player.hp = json["hp"]
+        currentRoomCounter = json["current_level"]
+        initializeRoom();
+        updateHeartBar();
+        })
 }
 
 function initializeRoom() {
