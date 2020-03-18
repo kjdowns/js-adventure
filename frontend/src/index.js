@@ -5,15 +5,6 @@ let currentRoomCounter = 1;
 let currentRoom;
 let player = new Player();
 
-//Initialize enemies
-    // currentRoom.enemies.push(new Enemy("slime")) 
-    // currentRoom.enemies.push(new Enemy("bat-black"))
-    // currentRoom.enemies.push(new Enemy("bat-red"))
-    // currentRoom.enemies.push(new Enemy("zombie"))
-    // currentRoom.enemies.push(new Enemy("arachne"))
-    // currentRoom.enemies.push(new Enemy("black-reaper"))
-    // currentRoom.enemies.push(new Enemy("golden-reaper")) 
-
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
             player.direction = "left"
