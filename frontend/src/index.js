@@ -129,6 +129,16 @@ function removeKilledEnemies(){
     currentRoom.enemies = currentRoom.enemies.filter( enemy => enemy.hp >= 0);
 }
 
+function parseEnemies(level) {
+    fetch(`http://localhost:3000/rooms/${level}/enemies`)
+    .then((response) => response.json())
+    .then(function (json){
+        json.forEach(enemy => {
+            currentRoom.enemies.push(new Enemy(enemy["name"]))
+        })
+    })
+}
+
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
