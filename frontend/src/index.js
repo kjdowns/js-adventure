@@ -152,10 +152,13 @@ function initializeRoom() {
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
-    // renderDialogBox();
-    handleCollisions();
-    updateGameObjects();
-    removeKilledEnemies();
+    if (isPaused) {
+        renderDialogBox();
+    } else {
+        handleCollisions();
+        updateGameObjects();
+        removeKilledEnemies();
+    }
     requestAnimationFrame(gameLoop)
 }
 
