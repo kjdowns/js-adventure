@@ -168,7 +168,19 @@ function parseEnemies(level) {
 }
 
 function uploadSave() {
-    
+    let configObj = {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"  
+        },
+        body: JSON.stringify({username: inputBox.value, hp: player.hp, current_level: currentRoomCounter})
+    }
+    fetch(`http://localhost:3000/games/${inputBox.value}`, configObj)
+    // .then((response) => response.json())
+    // .then((object) => {
+
+    // })
 }
 
 function initializeRoom() {
