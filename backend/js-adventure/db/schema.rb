@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_234031) do
+ActiveRecord::Schema.define(version: 2020_03_18_000307) do
 
   create_table "enemies", force: :cascade do |t|
     t.string "name"
     t.integer "room_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "username"
+    t.integer "hp"
+    t.integer "current_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "rooms", force: :cascade do |t|
