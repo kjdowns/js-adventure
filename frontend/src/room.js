@@ -1,7 +1,7 @@
 class Room {
-    constructor(src){
+    constructor(){
         this.background = new Image();
-        this.background.src = src
+        this.background.src = "img/dungeon_entrance.JPG"
         this.leftBoundary = 40; //x left
         this.rightBoundary = 720; //x right
         this.topBoundary = 65; // y top

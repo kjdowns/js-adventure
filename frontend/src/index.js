@@ -1,17 +1,18 @@
 
 const ctx = document.getElementById("gameCanvas").getContext("2d")
 const heartBar = document.getElementById("hp-bar");
-let currentRoom = new Room("img/dungeon_entrance.JPG");
+let currentRoomCounter = 1;
+let currentRoom;
 let player = new Player();
 
 //Initialize enemies
-    currentRoom.enemies.push(new Enemy("slime")) 
-    currentRoom.enemies.push(new Enemy("bat-black"))
-    currentRoom.enemies.push(new Enemy("bat-red"))
-    currentRoom.enemies.push(new Enemy("zombie"))
-    currentRoom.enemies.push(new Enemy("arachne"))
-    currentRoom.enemies.push(new Enemy("black-reaper"))
-    currentRoom.enemies.push(new Enemy("golden-reaper")) 
+    // currentRoom.enemies.push(new Enemy("slime")) 
+    // currentRoom.enemies.push(new Enemy("bat-black"))
+    // currentRoom.enemies.push(new Enemy("bat-red"))
+    // currentRoom.enemies.push(new Enemy("zombie"))
+    // currentRoom.enemies.push(new Enemy("arachne"))
+    // currentRoom.enemies.push(new Enemy("black-reaper"))
+    // currentRoom.enemies.push(new Enemy("golden-reaper")) 
 
 document.addEventListener('keydown', function(e){
     if (e.key == "ArrowLeft") {
@@ -139,6 +140,11 @@ function parseEnemies(level) {
     })
 }
 
+function initializeRoom() {
+    currentRoom = new Room();
+    parseEnemies(currentRoomCounter);
+}
+
 function gameLoop() {
     ctx.clearRect(0,0,800, 480)
     renderScene();
@@ -148,4 +154,5 @@ function gameLoop() {
     requestAnimationFrame(gameLoop)
 }
 
+initializeRoom();
 gameLoop();
