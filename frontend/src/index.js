@@ -140,9 +140,17 @@ function removeKilledEnemies(){
 
 function checkGameState() {
     if (currentRoom.enemies.length <= 0) {
-        currentRoomCounter += 1
+        isPaused = true
+        if (currentRoomCounter >= 10){
+            gameWon = true;
+        } else {
+            currentRoomCounter += 1
+            initializeRoom();
+        }
+    }
+    if (player.hp <= 0) {
         isPaused = true;
-        initializeRoom();
+        gameOver = true;
     }
 }
 
