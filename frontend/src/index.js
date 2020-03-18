@@ -40,7 +40,9 @@ document.addEventListener('keyup', function(e){
     } else if (e.key == "ArrowUp") {
             player.direction = "idle-up"
     } else if (e.key == "Enter"){
-        isPaused = false;
+        if (!gameWon && !gameOver) {
+            isPaused = false;
+        }
     }
 })
 
@@ -176,11 +178,7 @@ function gameLoop() {
         removeKilledEnemies();
         checkGameState();
     }
-    if (gameWon || gameOver) {
-        
-    } else {
-        requestAnimationFrame(gameLoop)
-    }
+    requestAnimationFrame(gameLoop)
 }
 
 initializeRoom();
