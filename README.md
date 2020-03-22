@@ -8,7 +8,8 @@ Fork and clone the respository to your local machine to play.
 
 Setting up the Server
 
-You can set up the back end Rails server by navigating to backend\js-adventure in terminal and running `rails s` to start the rails server
+You can set up the back end Rails server by navigating to backend\js-adventure in terminal and running `rake db:migrate` and then `rake db:seed` to seed the database.
+Run `rails s` to start the rails server
 
 Playing the Game
 
